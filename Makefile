@@ -207,6 +207,9 @@ clean-man:
 preview-man: clean-man man
 	man ./xxhsum.1
 
+test-qemu$(EXT): libxxhash.a
+	$(CC) $(FLAGS) test-qemu.c -o $@ -L. -lxxhash
+
 test: all namespaceTest check test-xxhsum-c c90test
 
 test-all: test test32 armtest clangtest gpptest usan listL120 trailingWhitespace staticAnalyze
@@ -224,6 +227,7 @@ clean:
 	@$(RM) -r *.dSYM   # Mac OS-X specific
 	@$(RM) core *.o libxxhash.*
 	@$(RM) xxhsum$(EXT) xxhsum32$(EXT) xxhsum_inlinedXXH$(EXT) xxh32sum xxh64sum
+	@$(RM) test-qemu$(EXT)
 	@echo cleaning completed
 
 

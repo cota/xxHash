@@ -15,3 +15,5 @@ xxhsum_inlinedXXH
 # Mac OS-X artefacts
 *.dSYM
 .DS_Store
+
+test-qemu
